@@ -1,22 +1,40 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-function FormularioVideojuego({ agregarVideojuego }) {
+function FormularioVideojuego({
+  agregarVideojuego,
+  modoEdicion,
+  videojuegoEnEdicion,
+  editarVideojuego,
+}) {
   const [nombre, setNombre] = useState("");
   const [plataforma, setPlataforma] = useState("");
   const [genero, setGenero] = useState("");
+
+  useEffect(() => {
+    if (modoEdicion && videojuegoEnEdicion) {
+      setNombre(videojuegoEnEdicion.nombre);
+      setPlataforma(videojuegoEnEdicion.plataforma);
+      setGenero(videojuegoEnEdicion.genero);
+    }
+  }, [modoEdicion, videojuegoEnEdicion]);
 
   const manejarEnvio = (e) => {
     e.preventDefault();
     if (nombre.trim() === "") return;
 
-    const nuevoVideojuego = {
-      id: Date.now(),
+    const datos = {
+      id: modoEdicion && videojuegoEnEdicion ? videojuegoEnEdicion.id : Date.now(),
       nombre,
       plataforma,
       genero,
     };
 
-    agregarVideojuego(nuevoVideojuego);
+    if (modoEdicion) {
+      editarVideojuego(datos);
+    } else {
+      agregarVideojuego(datos);
+    }
+
     setNombre("");
     setPlataforma("");
     setGenero("");
@@ -27,7 +45,9 @@ function FormularioVideojuego({ agregarVideojuego }) {
       onSubmit={manejarEnvio}
       className="bg-white p-6 rounded-lg shadow-md text-gray-900 flex flex-col gap-4"
     >
-      <h2 className="text-2xl font-bold mb-4">Agregar un videojuego</h2>
+      <h2 className="text-2xl font-bold mb-4">
+        {modoEdicion ? "Editar videojuego" : "Agregar un videojuego"}
+      </h2>
 
       <input
         type="text"
@@ -40,7 +60,7 @@ function FormularioVideojuego({ agregarVideojuego }) {
       <input
         type="text"
         className="border p-2 rounded"
-        placeholder="Plataforma (ej: PC, PS5, Xbox)"
+        placeholder="Plataforma"
         value={plataforma}
         onChange={(e) => setPlataforma(e.target.value)}
       />
@@ -48,7 +68,7 @@ function FormularioVideojuego({ agregarVideojuego }) {
       <input
         type="text"
         className="border p-2 rounded"
-        placeholder="Género (ej: Aventura, RPG, Acción)"
+        placeholder="Género"
         value={genero}
         onChange={(e) => setGenero(e.target.value)}
       />
@@ -57,7 +77,7 @@ function FormularioVideojuego({ agregarVideojuego }) {
         type="submit"
         className="bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
       >
-        Agregar a la Biblioteca
+        {modoEdicion ? "Guardar cambios" : "Agregar a la Biblioteca"}
       </button>
     </form>
   );
