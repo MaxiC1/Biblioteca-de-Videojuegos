@@ -17,9 +17,6 @@ Aplicación web hecha con React y Tailwind CSS que permite agregar, editar y eli
 - RAWG API
 - Git + GitHub
 
-## 🌐 Demo online
-👉 [Ver la app aquí]()
-
 ## 🧑‍💻 Autor
 Maximiliano Casanova – 2025
 

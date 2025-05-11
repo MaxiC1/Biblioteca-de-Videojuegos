@@ -10,5 +10,5 @@ export default defineConfig({
     tailwindcss(),
     ghPages(),
   ],
-  base: '/biblioteca-videojuegos/',
+  base: '/Biblioteca-de-Videojuegos/',
 })
