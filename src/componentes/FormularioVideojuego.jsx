@@ -43,15 +43,15 @@ function FormularioVideojuego({
   return (
     <form
       onSubmit={manejarEnvio}
-      className="bg-white p-6 rounded-lg shadow-md text-gray-900 flex flex-col gap-4"
+      className="bg-white text-gray-900 p-6 rounded-lg shadow-lg space-y-4"
     >
-      <h2 className="text-2xl font-bold mb-4">
+      <h2 className="text-2xl font-semibold text-blue-700">
         {modoEdicion ? "Editar videojuego" : "Agregar un videojuego"}
       </h2>
 
       <input
         type="text"
-        className="border p-2 rounded"
+        className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         placeholder="Nombre del videojuego"
         value={nombre}
         onChange={(e) => setNombre(e.target.value)}
@@ -59,7 +59,7 @@ function FormularioVideojuego({
 
       <input
         type="text"
-        className="border p-2 rounded"
+        className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         placeholder="Plataforma"
         value={plataforma}
         onChange={(e) => setPlataforma(e.target.value)}
@@ -67,7 +67,7 @@ function FormularioVideojuego({
 
       <input
         type="text"
-        className="border p-2 rounded"
+        className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         placeholder="Género"
         value={genero}
         onChange={(e) => setGenero(e.target.value)}
@@ -75,7 +75,7 @@ function FormularioVideojuego({
 
       <button
         type="submit"
-        className="bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+        className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
       >
         {modoEdicion ? "Guardar cambios" : "Agregar a la Biblioteca"}
       </button>

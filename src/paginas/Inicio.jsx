@@ -42,10 +42,16 @@ function Inicio() {
   
 
   return (
-    <div className="container mx-auto py-10 px-4">
-      <h1 className="text-4xl font-bold text-center mb-8">
-        🎮 Biblioteca de Videojuegos
-      </h1>
+    <div className="container mx-auto py-12 px-4 max-w-6xl">
+      <div className="container mx-auto px-4 py-12 max-w-6xl">
+        <h1 className="text-5xl font-extrabold text-center mb-10 text-blue-400 drop-shadow">
+          🎮 Biblioteca de Videojuegos
+        </h1>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Formulario + Buscador | Lista de juegos */}
+        </div>
+      </div>
 
       <div className="flex flex-col md:flex-row gap-8">
         <div className="md:w-1/2">

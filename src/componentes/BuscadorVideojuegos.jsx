@@ -14,7 +14,7 @@ function BuscadorVideojuegos({ agregarVideojuego }) {
   };
 
   return (
-    <div className="bg-white text-gray-900 p-4 rounded-lg shadow-md">
+    <div className="bg-white text-gray-900 p-6 rounded-lg shadow-lg space-y-4">
       <h2 className="text-xl font-bold mb-4">🔍 Buscar videojuego</h2>
 
       <form onSubmit={manejarBusqueda} className="flex gap-2 mb-4">
@@ -34,7 +34,7 @@ function BuscadorVideojuegos({ agregarVideojuego }) {
         {resultados.map((juego) => (
           <li
             key={juego.id}
-            className="p-4 border rounded bg-gray-50 hover:bg-gray-100 flex gap-4 items-center"
+            className="flex gap-4 items-center bg-white p-3 rounded-lg shadow hover:scale-[1.01] transition"
           >
             <img
               src={juego.background_image}
@@ -42,11 +42,11 @@ function BuscadorVideojuegos({ agregarVideojuego }) {
               className="w-20 h-20 object-cover rounded"
             />
             <div className="flex-1">
-              <strong className="block text-lg">{juego.name}</strong>
+              <strong className="text-lg">{juego.name}</strong>
               <p className="text-sm text-gray-600">Fecha: {juego.released}</p>
             </div>
             <button
-              className="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700 text-sm"
+              className="bg-green-600 text-white text-sm px-3 py-1 rounded hover:bg-green-700"
               onClick={() =>
                 agregarVideojuego({
                   id: Date.now(),
