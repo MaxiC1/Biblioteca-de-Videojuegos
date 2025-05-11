@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import FormularioVideojuego from "../componentes/FormularioVideojuego";
 import ListaVideojuegos from "../componentes/ListaVideojuegos";
+import BuscadorVideojuegos from "../componentes/BuscadorVideojuegos";
 
 function Inicio() {
   const [videojuegos, setVideojuegos] = useState(() => {
@@ -54,6 +55,10 @@ function Inicio() {
             videojuegoEnEdicion={videojuegoEnEdicion}
             editarVideojuego={editarVideojuego}
           />
+  
+          <div className="mt-8">
+            <BuscadorVideojuegos agregarVideojuego={agregarVideojuego} />
+          </div>
         </div>
 
         <div className="md:w-1/2">
